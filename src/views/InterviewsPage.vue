@@ -11,7 +11,7 @@ const userStore = useUserStore();
 const route = useRoute();
 
 const isLoading = ref<boolean>(true);
-const interview = ref<IInterview>();
+const interview = ref<IInterview | null>(null);
 const data = doc(db, `users/${userStore.userId}/interviews`, route.params.id as string);
 
 const getData = async (): Promise<void> => {
@@ -27,7 +27,6 @@ const getData = async (): Promise<void> => {
   }
 
   interview.value = fetchedData;
-  console.log(interview.value)
   isLoading.value = false;
 };
 

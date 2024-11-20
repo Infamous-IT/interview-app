@@ -79,7 +79,7 @@ onMounted(async () => {
       <app-column header="Result">
         <template #body="slotProps">
           <span v-if="!slotProps.data.result">Empty</span>
-          <app-badge :severity="slotProps.data.result === 'Offer' ? 'success' : 'danger'" :value="slotProps.data.result" />
+          <app-badge v-else :severity="slotProps.data.result === 'Offer' ? 'success' : 'danger'" :value="slotProps.data.result" />
         </template>
       </app-column>
       <app-column>
